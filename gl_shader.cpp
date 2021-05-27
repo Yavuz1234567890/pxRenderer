@@ -56,6 +56,11 @@ namespace renderer
 		glUniform4f(uniform(name), x, y, z, w);
 	}
 
+	void gl_shader::set_mat4(const std::string& name, float* matPtr)
+	{
+		glUniformMatrix4fv(uniform(name), GL_FALSE, matPtr);
+	}
+
 	void gl_shader::bind() const
 	{
 		glUseProgram(program);

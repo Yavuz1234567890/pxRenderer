@@ -21,6 +21,7 @@ namespace renderer
 		void set_vec2(const std::string& name, float x, float y);
 		void set_vec3(const std::string& name, float x, float y, float z);
 		void set_vec4(const std::string& name, float x, float y, float z, float w);
+		void set_mat4(const std::string& name, float* matPtr);
 
 		void bind() const;
 		void unbind() const;
