@@ -1,6 +1,6 @@
 # pxRenderer
 
-pxRenderer: a OpenGL renderer engine support glfw and glad
+pxRenderer: a OpenGL renderer engine support glew and glad
 
 ## How to download 
 
