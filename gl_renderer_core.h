@@ -26,7 +26,7 @@
 	#define Atan(x)			std::atan(x)
 	#define Atan2(y, x)		std::atan2(y, x)
 
-	#if !defined(PX_IMPL_GLEW) | !defined(PX_IMPL_GLAD) | !defined(PX_IMPL_GLFW) | !defined(PX_IMPL_WIN32)
+	#if !defined(PX_IMPL_GLEW) | !defined(PX_IMPL_GLAD) | !defined(PX_IMPL_GLFW) | !defined(PX_IMPL_WIN32) | !defined(PX_IMPL_STBI_IMAGE)
 		#ifdef __has_include
 			#if __has_include(<GL/glew.h>)
 				#define PX_IMPL_GLEW
@@ -36,6 +36,8 @@
 				#define PX_IMPL_GLFW
 			#elif __has_include(<windows.h>)
 				#define PX_IMPL_WIN32
+			#elif __has_include(<stbi/stbi_image>)
+				#define PX_IMPL_STBI_IMAGE
 			#endif
 		#endif
 	#endif
@@ -55,6 +57,11 @@
 			#elif defined(PX_IMPL_WIN32)
 				#define GL_EXT_INIT()	gladLoadGLLoader((GLADloadproc)wglGetProcAddress)
 			#endif
+		#elif defined(PX_IMPL_GLFW)
+			#include <GLFW/glfw3.h>
+		#elif defined(PX_IMPL_WIN32)
+			#include <windows.h>
+			#include <windowsx.h>
 		#endif
 	#endif
 #endif
