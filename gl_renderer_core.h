@@ -36,7 +36,7 @@
 				#define PX_IMPL_GLFW
 			#elif __has_include(<windows.h>)
 				#define PX_IMPL_WIN32
-			#elif __has_include(<stbi/stbi_image>)
+			#elif __has_include(<stbi/stbi_image.h>)
 				#define PX_IMPL_STBI_IMAGE
 			#endif
 		#endif
@@ -62,6 +62,8 @@
 		#elif defined(PX_IMPL_WIN32)
 			#include <windows.h>
 			#include <windowsx.h>
+		#elif defined(PX_IMPL_STBI_IMAGE)
+			#include <stbi/stbi_image.h>
 		#endif
 	#endif
 #endif
