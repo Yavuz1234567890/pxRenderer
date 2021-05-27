@@ -8,7 +8,7 @@ namespace renderer
 		GL_EXT_INIT();
 	}
 
-	void gl_renderer::draw_mesh(gl_mesh* mesh, const draw_mode& mode)
+	void gl_renderer::draw_mesh(gl_mesh* mesh, const draw_mode& mode = draw_mode::ARRAY)
 	{
 		mesh->bind();
 
