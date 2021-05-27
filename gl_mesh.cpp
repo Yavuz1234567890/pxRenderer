@@ -51,7 +51,10 @@ namespace renderer
 	{
 		glBindVertexArray(0);
 		glBindVertexArray(vertex_array);
-
+		
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+		glBindBuffer(GL_ARRAY_BUFFER, buffer);
+		
 		glEnableVertexAttribArray(index);
 		glVertexAttribPointer(index, size, GL_FLOAT, GL_FALSE, 0, 0);
 	}
