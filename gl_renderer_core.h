@@ -34,14 +34,7 @@
 				#define PX_IMPL_GLAD
 			#elif __has_include(<GLFW/glfw3.h>)
 				#define PX_IMPL_GLFW
-<<<<<<< HEAD
 			#elif __has_include(<stbi/stbi_image>)
-=======
-			#elif __has_include(<windows.h>)
-				#define PX_IMPL_WIN32
-			#elif __has_include(<stbi/stbi_image.h>)
->>>>>>> 3334489f8263426fd50f6e6eecba3a6e4193873a
-				#define PX_IMPL_STBI_IMAGE
 			#endif
 		#endif
 	#endif
@@ -61,12 +54,6 @@
 				#endif
 		#elif defined(PX_IMPL_GLFW)
 			#include <GLFW/glfw3.h>
-<<<<<<< HEAD
-=======
-		#elif defined(PX_IMPL_WIN32)
-			#include <windows.h>
-			#include <windowsx.h>
->>>>>>> 3334489f8263426fd50f6e6eecba3a6e4193873a
 		#elif defined(PX_IMPL_STBI_IMAGE)
 			#include <stbi/stbi_image.h>
 		#endif
