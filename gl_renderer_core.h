@@ -46,6 +46,7 @@
 		
 		#ifdef PX_IMPL
 			#if defined(PX_IMPL_GLEW)
+				#define GLEW_STATIC
 				#include <GL/glew.h>
 				#define GL_EXT_INIT()	glewInit()
 			#elif defined(PX_IMPL_GLAD)
