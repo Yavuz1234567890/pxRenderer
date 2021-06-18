@@ -28,14 +28,14 @@ namespace renderer
 
 		glGenBuffers(1, &vertex_buffer);
 		glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(m_data.vertices), m_data.vertices, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(m_data.vertices) * sizeof(float), m_data.vertices, GL_STATIC_DRAW);
 		add_buffer(vertex_buffer, 0, 3);
 
 		if (tex_coords_enable)
 		{
 			glGenBuffers(1, &texture_buffer);
 			glBindBuffer(GL_ARRAY_BUFFER, texture_buffer);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(m_data.texture_coords), m_data.texture_coords, GL_STATIC_DRAW);
+			glBufferData(GL_ARRAY_BUFFER, sizeof(m_data.texture_coords) * sizeof(int), m_data.texture_coords, GL_STATIC_DRAW);
 			add_buffer(texture_buffer, 1, 2);
 		}
 
@@ -43,7 +43,7 @@ namespace renderer
 		{
 			glGenBuffers(1, &index_buffer);
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer);
-			glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(m_data.indices), m_data.indices, GL_STATIC_DRAW);
+			glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(m_data.indices) * sizeof(int), m_data.indices, GL_STATIC_DRAW);
 		}
 	}
 
