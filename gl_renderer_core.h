@@ -51,7 +51,11 @@
 				#define GL_EXT_INIT()	glewInit()
 			#elif defined(PX_IMPL_GLAD)
 				#include <glad/glad.h>
+				#if !defined(PX_IMPL_GLFW)
 				#define GL_EXT_INIT()	gladLoadGL()
+				#else
+				#define GL_EXT_INIT() gladLoadGLLoader(glfwGetProcAddress())
+				#endif
 			#elif defined(PX_IMPL_GLFW)
 				#include <GLFW/glfw3.h>
 			#elif defined(PX_IMPL_STBI_IMAGE)
