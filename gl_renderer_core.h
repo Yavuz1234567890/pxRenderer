@@ -11,7 +11,7 @@
 		#error APPLE
 	#endif
 	
-	#ifdef WINDOWS
+	#if defined(WINDOWS) || defined(LINUX) || defined(APPLE)
 		#define Cos(x)			std::cos(x)
 		#define Sin(x)			std::sin(x)
 		#define Tan(x)			std::tan(x)
