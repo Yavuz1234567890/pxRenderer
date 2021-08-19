@@ -1,23 +1,14 @@
 #pragma once
 
 #ifdef PX_GL_RENDERER_ENGINE
-	#ifdef __cplusplus
-		#include <iostream>
-		#include <string>
-		#include <sstream>
-		#include <map>
-		#include <hash_map>
-		#include <unordered_map>
-		#include <fstream>
-		#include <cmath>
-	#endif
-	
+	#include <cmath>
+
 	#if defined(_WIN32)
 		#define WINDOWS
 	#elif defined(__linux__)
 		#define LINUX
 	#elif defined(__APPLE__)
-		#error Renderer not support this platform
+		#error APPLE
 	#endif
 	
 	#ifdef WINDOWS
