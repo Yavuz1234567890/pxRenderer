@@ -28,7 +28,7 @@ namespace renderer
 		glValidateProgram(program);
 	}
 
-	void gl_shader::uniform(const std::string& name)
+	int gl_shader::uniform(const std::string& name)
 	{
 		int location = glGetUniformLocation(program, name);
 		if (!location)std::cerr << "[Shader Error] " << name << " var is not found" << std::endl;
