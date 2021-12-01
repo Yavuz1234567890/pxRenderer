@@ -7,11 +7,13 @@
 		#define WINDOWS
 	#elif defined(__linux__)
 		#define LINUX
-	#elif defined(__APPLE__)
-		#error APPLE
+	#elif defined(__APPLE__) || defined(__MACH__)
+		#define APPLE
+	#elif defined(__ANDROID__)
+		#define ANDROID
 	#endif
 	
-	#if defined(WINDOWS) || defined(LINUX) || defined(APPLE)
+	#if defined(WINDOWS) || defined(LINUX) || defined(APPLE) || defined(ANDROID)
 		#define Cos(x)			std::cos(x)
 		#define Sin(x)			std::sin(x)
 		#define Tan(x)			std::tan(x)
@@ -26,7 +28,8 @@
 					#define PX_IMPL_GLAD
 				#elif __has_include(<GLFW/glfw3.h>)
 					#define PX_IMPL_GLFW
-				#elif __has_include(<stbi/stbi_image>)
+				#elif __has_include(<stbi/stbi_image.h>)
+					#define PX_IMPL_STBI_IMAGE
 				#endif
 			#endif
 		#endif
@@ -36,7 +39,9 @@
 		#endif
 		
 		#ifdef PX_IMPL
-			#if defined(PX_IMPL_GLEW)
+			#if defined(PX_IMPL_GLFW)
+				#include <GLFW/glfw3.h>
+			#elif defined(PX_IMPL_GLEW)
 				#define GLEW_STATIC
 				#include <GL/glew.h>
 				#define GL_EXT_INIT()	glewInit()
@@ -47,8 +52,6 @@
 				#else
 				#define GL_EXT_INIT() gladLoadGLLoader(glfwGetProcAddress())
 				#endif
-			#elif defined(PX_IMPL_GLFW)
-				#include <GLFW/glfw3.h>
 			#elif defined(PX_IMPL_STBI_IMAGE)
 				#include <stbi/stbi_image.h>
 			#endif
